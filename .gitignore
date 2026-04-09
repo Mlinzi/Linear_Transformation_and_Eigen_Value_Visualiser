@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+
+.pytest_cache/
+.mypy_cache/
+
+ui_test_artifacts/
+app_screenshot.png
+Backups/
+
+.vscode/
+.idea/
+
+*.log
