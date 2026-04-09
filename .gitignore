@@ -9,6 +9,7 @@ __pycache__/
 ui_test_artifacts/
 app_screenshot.png
 Backups/
+backups/
 
 .vscode/
 .idea/
