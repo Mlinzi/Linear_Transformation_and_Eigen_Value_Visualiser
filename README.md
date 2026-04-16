@@ -17,7 +17,6 @@ This project is a local desktop visualizer for a math group presentation. The ma
 - `main.py`: startup entrypoint
 - `core.py`: matrix validation, transformation math, preset metadata, eigenvalue/eigenvector analysis
 - `viewer.py`: PyQt5 and PyVista interface, scene construction, animation, and rendering
-- `tests/test_core.py`: unit tests for the math logic
 - `PROJECT_REPORT.md`: short write-up scaffold for the presentation/report
 
 ## Setup
@@ -39,22 +38,6 @@ python -m pip install -r requirements.txt
 ```powershell
 python main.py
 ```
-
-## Run Tests
-
-```powershell
-python -m unittest discover -s tests -v
-```
-
-## Suggested Demo Flow
-
-1. Start in `2 x 2 (XY plane)` mode with `Identity`.
-2. Switch to `Diagonal scaling` to show axis-aligned stretching.
-3. Use `Reflection` to show orientation reversal.
-4. Use `Shear` to show how the square and lattice become slanted.
-5. Use `Rotation` to show turning without size change.
-6. Move to `3 x 3` only after the plane-based story is clear.
-7. Turn on the eigenvector overlay only as an advanced add-on.
 
 ## Equation Input
 
