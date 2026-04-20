@@ -53,6 +53,12 @@ TRANSFORMATION_STYLES = {
     "Rotation": {"fill": "#69b7ff", "edge": "#def1ff", "grid": "#4d98db"},
     "Rotation about x": {"fill": "#69b7ff", "edge": "#def1ff", "grid": "#4d98db"},
     "Rotation about z": {"fill": "#69b7ff", "edge": "#def1ff", "grid": "#4d98db"},
+    "Project onto X": {"fill": "#b07fff", "edge": "#e8d8ff", "grid": "#9a68e8"},
+    "Project onto Y": {"fill": "#b07fff", "edge": "#e8d8ff", "grid": "#9a68e8"},
+    "Project onto y=x": {"fill": "#b07fff", "edge": "#e8d8ff", "grid": "#9a68e8"},
+    "Project onto XY": {"fill": "#b07fff", "edge": "#e8d8ff", "grid": "#9a68e8"},
+    "Project onto XZ": {"fill": "#b07fff", "edge": "#e8d8ff", "grid": "#9a68e8"},
+    "Project onto YZ": {"fill": "#b07fff", "edge": "#e8d8ff", "grid": "#9a68e8"},
     "Custom matrix": {"fill": "#ff9f5e", "edge": "#ffe0c4", "grid": "#dd8a51"},
 }
 
@@ -309,13 +315,10 @@ class LinearTransformationWindow(QtWidgets.QMainWindow):
 
         secondary_row = QtWidgets.QHBoxLayout()
         secondary_row.setSpacing(8)
-        apply_button = QtWidgets.QPushButton("Apply", panel)
-        apply_button.clicked.connect(self.apply_matrix)
         reset_button = QtWidgets.QPushButton("Reset All", panel)
         reset_button.clicked.connect(self.reset_matrix)
         home_button = QtWidgets.QPushButton("Home View", panel)
         home_button.clicked.connect(self.restore_view)
-        secondary_row.addWidget(apply_button)
         secondary_row.addWidget(reset_button)
         secondary_row.addWidget(home_button)
         panel_layout.addLayout(secondary_row)

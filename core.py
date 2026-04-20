@@ -118,6 +118,9 @@ _PRESETS_2D: tuple[tuple[str, np.ndarray], ...] = (
         ),
     ),
     ("Rotation", _rotation_z(np.deg2rad(45.0))[:2, :2]),
+    ("Project onto X", np.array([[1.0, 0.0], [0.0, 0.0]], dtype=float)),
+    ("Project onto Y", np.array([[0.0, 0.0], [0.0, 1.0]], dtype=float)),
+    ("Project onto y=x", np.array([[0.5, 0.5], [0.5, 0.5]], dtype=float)),
 )
 
 _PRESETS_3D: tuple[tuple[str, np.ndarray], ...] = (
@@ -137,6 +140,9 @@ _PRESETS_3D: tuple[tuple[str, np.ndarray], ...] = (
     ),
     ("Rotation about x", _rotation_x(np.deg2rad(35.0))),
     ("Rotation about z", _rotation_z(np.deg2rad(45.0))),
+    ("Project onto XY", np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]], dtype=float)),
+    ("Project onto XZ", np.array([[1.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 1.0]], dtype=float)),
+    ("Project onto YZ", np.array([[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]], dtype=float)),
 )
 
 
@@ -221,6 +227,8 @@ def describe_transformation(
         return "Stretches or compresses independently along the coordinate directions."
     if "reflection" in label or (is_orthogonal and determinant < 0.0):
         return "Mirrors the shape across an axis or plane and reverses orientation."
+    if "project" in label:
+        return "Collapses the shape onto a lower-dimensional subspace; det = 0 and the map is not invertible."
     if "shear" in label:
         return "Slides one direction along another, turning the grid and shape into a slanted form."
     if "rotation" in label or (is_orthogonal and determinant > 0.0):
